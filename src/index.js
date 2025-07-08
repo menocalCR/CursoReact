@@ -6,12 +6,15 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css"
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AutosProvider } from "./context/AutosContext";
+import { AutoLoader } from "./loaders/AutoLoader";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <AutosProvider>
+       <AutoLoader />
+      <App />
+    </AutosProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

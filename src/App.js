@@ -1,29 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Paginator } from "primereact/paginator";
 import  AutoCard from "./components/AutoCard";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAutos } from "./context/AutosContext";
+import { FiltroAutos } from "./components/FiltroAutos";
 
-export default function App() {
-  const slideVariants = { //configuracion de slide para animacion 
-  initial: { x: 100, opacity: 0 },
-  animate: { x: 0, opacity: 1, transition: { duration: 0.4 } },
-  exit: { x: -100, opacity: 0, transition: { duration: 0.3 } },
-};
+ function App() {
 
-  const [autos, setAutos] = useState([]); //variable para asignacion de los autos
+  const { autosFiltrados } = useAutos(); //variable para asignacion de los autos obtenidos desde el context
   const [first, setFirst] = useState(0);//variable para la paginacion
-  const rows = 8;
-
- {/* consulta de registros por medio de API */}
-  useEffect(() => {
-    fetch("http://localhost:3001/autos")
-      .then((res) => res.json())
-      .then((data) => setAutos(data))
-      .catch((err) => console.error("Error al cargar autos:", err));
-  }, []);
-
-  const autosPaginados = autos.slice(first, first + rows);
+  const rows = 4 ;
+  //VAriables para la paginacion
+  const autosPaginados = autosFiltrados.slice(first, first + rows);
   const onPageChange = (e) => setFirst(e.first);
+
+  const slideVariants = { //configuracion de slide para animacion 
+    initial: { x: 100, opacity: 0 },
+    animate: { x: 0, opacity: 1, transition: { duration: 0.4 } },
+    exit: { x: -100, opacity: 0, transition: { duration: 0.3 } },
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -40,12 +35,12 @@ export default function App() {
           <h1 className="text-4xl font-bold text-blue-400 drop-shadow-lg">Autos CR</h1>
           <p className="text-lg text-gray-300">Los mejores vehículos usados y seminuevos del país</p>
         </header>
-
+        <FiltroAutos />
         <div className="flex flex-wrap justify-center gap-6">
           <AnimatePresence mode="wait">
             <motion.div
                 key={first} // cambia en cada página
-                variants={slideVariants}
+                variants={slideVariants}//animacion
                 initial="initial"
                 animate="animate"
                 exit="exit"
@@ -55,13 +50,13 @@ export default function App() {
             </motion.div>
           </AnimatePresence>
        </div>
-       
+
       {/* paginator */}
         <div className="flex justify-center mt-10">
           <Paginator
             first={first}
             rows={rows}
-            totalRecords={autos.length}
+            totalRecords={autosFiltrados.length}
             onPageChange={onPageChange}
             template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
             className="bg-white/80 backdrop-blur-md rounded-md shadow-md p-2"
@@ -71,3 +66,4 @@ export default function App() {
     </div>
   );
 }
+export default App;
