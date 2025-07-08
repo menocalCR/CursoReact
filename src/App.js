@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Paginator } from "primereact/paginator";
-import  AutoCard from "./components/AutoCard";
-import { motion, AnimatePresence } from "framer-motion";
 import { useAutos } from "./context/AutosContext";
-import { FiltroAutos } from "./components/FiltroAutos";
+import  FiltroAutos  from "./components/FiltroAutos";
+import AutoPaginador from "./components/organisms/AutoPaginador";
+import AutoAnimatePresence from "./components/organisms/AutoAnimatePresence";
 
  function App() {
 
@@ -36,7 +35,9 @@ import { FiltroAutos } from "./components/FiltroAutos";
           <p className="text-lg text-gray-300">Los mejores vehículos usados y seminuevos del país</p>
         </header>
         <FiltroAutos />
-        <div className="flex flex-wrap justify-center gap-6">
+        <AutoAnimatePresence first ={first} slideVariants={slideVariants} autosPaginados={autosPaginados}>        
+        </AutoAnimatePresence>
+       {/* <div className="flex flex-wrap justify-center gap-6">
           <AnimatePresence mode="wait">
             <motion.div
                 key={first} // cambia en cada página
@@ -49,19 +50,10 @@ import { FiltroAutos } from "./components/FiltroAutos";
                 {autosPaginados.map((auto) => (<AutoCard key={auto.id} auto={auto} /> ))}
             </motion.div>
           </AnimatePresence>
-       </div>
+       </div>*/}
 
       {/* paginator */}
-        <div className="flex justify-center mt-10">
-          <Paginator
-            first={first}
-            rows={rows}
-            totalRecords={autosFiltrados.length}
-            onPageChange={onPageChange}
-            template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
-            className="bg-white/80 backdrop-blur-md rounded-md shadow-md p-2"
-          />
-        </div>
+        <AutoPaginador first ={first} rows={rows} autosFiltrados = {autosFiltrados} onPageChange={onPageChange}></AutoPaginador>
       </div>
     </div>
   );
