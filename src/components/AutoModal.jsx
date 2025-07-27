@@ -6,7 +6,7 @@ export default function AutoModal({ visible, onHide, auto }) {
 
   return (
     <Dialog
-      header={`${auto.modelo} (${auto.ano})`}
+      header={`${auto.marca} ${auto.modelo} (${auto.ano})`}
       visible={visible}
       style={{ width: "90%", maxWidth: "600px" }}
       onHide={onHide}
