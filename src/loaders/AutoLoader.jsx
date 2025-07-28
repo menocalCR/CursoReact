@@ -14,6 +14,26 @@ export function AutoLoader() {
   return null; //no necesita retornar nada, unicamente carga o valores por medio del useAutos
 }
 
+export async function registrarAuto(autoNuevo) {
+  try {
+    const res = await fetch("http://localhost:3001/autos", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(autoNuevo),
+    });
+
+    if (!res.ok) throw new Error("Error al registrar el auto");
+
+    const autoGuardado = await res.json();
+
+    console.log("🚗 Auto registrado correctamente:", autoGuardado);
+    return autoGuardado;
+  } catch (err) {
+    console.error("❌ Error al registrar auto:", err);
+    return null;
+  }
+}
+
 export async function reservarAuto(id) {
   try {
     const res = await fetch(`http://localhost:3001/autos?id=${id}`);

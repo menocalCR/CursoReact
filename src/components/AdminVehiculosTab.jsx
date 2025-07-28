@@ -5,6 +5,8 @@ import GraficoDisponibilidad from "../graphics/GraficoDisponibilidad";
 import GraficoEstadisticasVehiculos from "../graphics/GraficoEstadisticasVehiculos";
 import GraficoEstadisticasAutos from "../graphics/GraficoEstadisticasAutos";
 import GraficoVehiculosPanel from "../graphics/GraficoVehiculosPanel";
+import FormularioAutoModal from "../components/FormularioAutoModal";
+
 
 export default function AdminVehiculosTab() {
   const {
@@ -14,11 +16,13 @@ export default function AdminVehiculosTab() {
     setFiltros,
     marcarComoEntregado,
     modificarEstadoReservado,
+    registrarAuto,
   } = useAutos();
 
   const [autoSeleccionado, setAutoSeleccionado] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [pagina, setPagina] = useState(0);
+  const [modalAgregarVisible, setModalAgregarVisible] = useState(false);
 
   const porPagina = 6;
   const totalPaginas = Math.ceil(autosFiltradosPorCriterios.length / porPagina);
@@ -54,6 +58,13 @@ export default function AdminVehiculosTab() {
       );
     }
   };
+
+  const registrarAutoDesdeTab = async (nuevoAuto) => {
+  const creado = await registrarAuto(nuevoAuto);
+  if (creado) {
+    setAutos((prev) => [...prev, creado]);
+  }
+};
 
   function Paginador({ pagina, setPagina, totalPaginas }) {
   const irA = (nueva) => {
@@ -91,12 +102,19 @@ export default function AdminVehiculosTab() {
   );
 }
 
-
   return (
     <div className="w-full max-w-6xl mx-auto bg-gray-100 shadow-md p-6 rounded-lg mb-10">
       <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center">
         Administración de vehículos
       </h2>
+        <div className="flex justify-end mb-4">
+          <button
+            onClick={() => setModalAgregarVisible(true)}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          >
+            + Agregar vehículo
+          </button>
+        </div>
 
       {/* 🔍 Filtros */}
       <section className="bg-white rounded-lg shadow-lg p-6 mb-8">
@@ -206,7 +224,7 @@ export default function AdminVehiculosTab() {
         ))}
       </section>
 
-      {/* 🔄 Paginación */}
+
       {totalPaginas > 1 && (
   <Paginador
     pagina={pagina}
@@ -215,7 +233,7 @@ export default function AdminVehiculosTab() {
   />
 )}
 
-      {/* 📋 Modal de detalle */}
+
       <AutoModal
         visible={modalVisible}
         onHide={cerrarModal}
@@ -237,31 +255,30 @@ export default function AdminVehiculosTab() {
             meses,
         }) => (
             <>
-            {/* Interfaz de filtros */}
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                {/* Marca */}
                 <select value={marcaFiltro} onChange={(e) => setMarcaFiltro(e.target.value)} className="form-select">
                 <option value="">Todas las marcas</option>
                 {marcas.map((m) => <option key={m} value={m}>{m}</option>)}
                 </select>
-                {/* Año */}
                 <select value={anioFiltro} onChange={(e) => setAnioFiltro(e.target.value)} className="form-select">
                 <option value="">Todos los años</option>
                 {años.map((a) => <option key={a} value={a}>{a}</option>)}
                 </select>
-                {/* Mes */}
                 <select value={mesFiltro} onChange={(e) => setMesFiltro(e.target.value)} className="form-select">
                 <option value="">Todos los meses</option>
                 {meses.map((m) => <option key={m} value={m}>Mes {m}</option>)}
                 </select>
             </div>
-
-            {/* Y acá podés usar autosFiltrados para tus gráficos */}
             <GraficoVehiculosPanel autos={autosFiltrados} />
              </>
         )}
         </GraficoEstadisticasAutos >
-
+        <FormularioAutoModal
+          visible={modalAgregarVisible}
+          onHide={() => setModalAgregarVisible(false)}
+          onRegistrar={registrarAutoDesdeTab}
+        />
     </div>
   );
 }

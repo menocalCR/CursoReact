@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { reservarAuto, marcarComoEntregado,  modificarEstadoReservado,} from "../loaders/AutoLoader";
+import { reservarAuto, marcarComoEntregado,  modificarEstadoReservado, registrarAuto } from "../loaders/AutoLoader";
 
 const AutosContext = createContext();
 
@@ -44,7 +44,7 @@ const autosFiltradosPorCriterios = autos.filter((auto) => {
 
 
   return (
-    <AutosContext.Provider value={{ autos, setAutos, filtros, setFiltros, autosFiltrados, autosFiltradosPorCriterios, marcarComoEntregado, modificarEstadoReservado, reservarAuto }}>
+    <AutosContext.Provider value={{ autos, setAutos, filtros, setFiltros, autosFiltrados, autosFiltradosPorCriterios, marcarComoEntregado, modificarEstadoReservado, reservarAuto, registrarAuto }}>
       {children}
     </AutosContext.Provider>
   );

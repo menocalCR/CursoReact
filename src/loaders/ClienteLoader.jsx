@@ -5,7 +5,7 @@ export function ClienteLoader() {
   const { setClientes } = useClientes();
 
   useEffect(() => {
-    fetch("http://localhost:3001/usuarios") // fuente original
+    fetch("http://localhost:3001/usuarios")
       .then((res) => res.json())
       .then((usuarios) => {
         const soloClientes = usuarios.filter((u) => u.rol === "compra");

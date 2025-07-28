@@ -87,7 +87,7 @@ export default function PanelAdministrativo() {
           rechazarCita={rechazarCita}
         />
       </TabPanel>
-       <TabPanel header="Administración de contactos"> {/* ✅ Nuevo tab */}
+       <TabPanel header="Administración de contactos">
             <AdminContactosTab contactos={contactos} />
           </TabPanel>
         <TabPanel key="feedback-1" header="Administración de vehiculos">
