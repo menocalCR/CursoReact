@@ -28,7 +28,6 @@ function App() {
           <Route path="/sucursales" element={<Sucursales />} />
           <Route path="/panel-cliente" element={<PanelCliente />} />
           <Route path="/panel-admin" element={<PanelAdministrativo />} />
-            {/* Rutas por rol */}
               <Route path="/*" element={<RutasCliente />} />
               <Route path="/*" element={<RutasAdmin />} />
         </Routes>

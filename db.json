@@ -642,6 +642,26 @@
       "fechaIngreso": "2025-07-25T17:43:46.363Z",
       "contactadoPor": "teléfono",
       "FecharResolucion": "2025-07-28T05:40:47.589Z"
+    },
+    {
+      "id": "de66",
+      "nombre": "Prueba",
+      "apellidos": "apellido",
+      "email": "correo@prueba.com",
+      "telefono": "506 8778-8778",
+      "placa": "BDR-445",
+      "identificacion": "206180406",
+      "tipoIdentificacion": "Físico",
+      "consulta": "Consulta sobre los productoa",
+      "aceptaPolitica": true,
+      "estado": "aprobado",
+      "clienteId": "4",
+      "atendidoPor": "Jonathan",
+      "resolucion": "se le envio la info por correo",
+      "tipoCedula": "Físico",
+      "fechaIngreso": "2025-07-28T15:09:58.830Z",
+      "contactadoPor": "teléfono",
+      "FecharResolucion": "2025-07-28T15:11:57.300Z"
     }
   ],
   "sucursales": [
@@ -2037,6 +2057,21 @@
         "direccion": "222222222222",
         "tarjeta": "2222 2222 2222 2222"
       }
+    },
+    {
+      "id": "e550",
+      "autoId": "6",
+      "clienteId": "4",
+      "tipo": "reserva",
+      "estado": "reservado",
+      "fecha": "2025-07-28T15:05:46.660Z",
+      "montoPagado": 100000,
+      "datosCliente": {
+        "nombre": "Jonahan Menocal",
+        "telefono": "506 2222-2222",
+        "direccion": "Direccion exacta",
+        "tarjeta": "2222 2222 2222 2222"
+      }
     }
   ],
   "testimonios": [
@@ -2394,6 +2429,16 @@
       "info": "Mazda Mazda 3 2018",
       "estrellas": 5,
       "fecha": "2025-07-27T04:29:56.259Z"
+    },
+    {
+      "id": "59b2",
+      "idcliente": "4",
+      "idauto": "3",
+      "nombre": "Jonathan Menocal",
+      "mensaje": "EXcelente atencion",
+      "info": "Kia Sportage 2021",
+      "estrellas": 5,
+      "fecha": "2025-07-28T15:06:26.911Z"
     }
   ],
   "autos": [
@@ -2551,7 +2596,9 @@
       "capacidad": "47 litros",
       "traccion": "Delantera",
       "detalles": "Turbo, cámara de reversa, sistema de sonido premium",
-      "reservado": false
+      "reservado": false,
+      "entregado": true,
+      "fechaEntrega": "2025-07-28T15:13:36.822Z"
     },
     {
       "id": "7",
@@ -7437,6 +7484,30 @@
       "detalleCliente": "Detalle adicional ",
       "detallesCita": "",
       "sucursalId": "sanRamon"
+    },
+    {
+      "id": "c23e",
+      "clienteId": "4",
+      "fechaSolicitada": "2025-08-01",
+      "horaSolicitada": "08:00",
+      "tipoCita": "revisión de vehículo en taller",
+      "estado": "solicitada",
+      "idUsuarioAtiende": "",
+      "detalleCliente": "",
+      "detallesCita": "",
+      "sucursalId": "liberia"
+    },
+    {
+      "id": "3ada",
+      "clienteId": "4",
+      "fechaSolicitada": "2025-07-30",
+      "horaSolicitada": "08:00",
+      "tipoCita": "revisión de vehículo en taller",
+      "estado": "aprobada",
+      "idUsuarioAtiende": "",
+      "detalleCliente": "vehiculo propio",
+      "detallesCita": "",
+      "sucursalId": "liberia"
     }
   ]
 }
