@@ -45,3 +45,49 @@ export async function reservarAuto(id) {
   }
 }
 
+export async function marcarComoEntregado(id) {
+  const fechaEntrega = new Date().toISOString(); // formato universal
+  
+  try {
+    const res = await fetch(`http://localhost:3001/autos/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        entregado: true,
+        reservado: false,
+        fechaEntrega: fechaEntrega,
+      }),
+    });
+
+    if (!res.ok) throw new Error("Error al marcar como entregado");
+
+    const actualizado = await res.json();
+    console.log("✅ Vehículo entregado:", actualizado);
+    return actualizado;
+  } catch (err) {
+    console.error("❌ Error en entrega:", err);
+    return null;
+  }
+}
+
+
+export async function modificarEstadoReservado(id, estado) {
+  try {
+    const res = await fetch(`http://localhost:3001/autos/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reservado: estado }),
+    });
+
+    if (!res.ok) throw new Error("Error al actualizar reserva");
+
+    const actualizado = await res.json();
+    console.log("🔄 Estado actualizado:", actualizado);
+    return actualizado;
+  } catch (err) {
+    console.error("❌ Error al modificar estado:", err);
+    return null;
+  }
+}
+
+

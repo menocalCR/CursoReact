@@ -31,6 +31,12 @@ export default function AutoModal({ visible, onHide, auto }) {
         <li><strong>Neumáticos:</strong> {auto.neumaticos}"</li>
         <li><strong>Capacidad del tanque:</strong> {auto.capacidad}</li>
         <li><strong>Tracción:</strong> {auto.traccion}</li>
+        {auto.fechaEntrega && (
+  <p>
+    <strong>Fecha de entrega:</strong>{" "}
+    {new Date(auto.fechaEntrega).toLocaleDateString("es-CR")}
+  </p>
+)}
       </ul>
     </Dialog>
   );

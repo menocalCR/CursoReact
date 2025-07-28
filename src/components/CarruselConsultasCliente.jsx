@@ -105,7 +105,7 @@ export default function CarruselConsultasCliente({ clienteId }) {
         </div>
       )}
       {modalVisible && (
-        <DetalleConsultaModal  contacto={detalleContacto}  onClose={() => setModalVisible(false)} />
+        <DetalleConsultaModal  visible={modalVisible} contacto={detalleContacto}  onClose={() => setModalVisible(false)} />
       )}
 
     </div>

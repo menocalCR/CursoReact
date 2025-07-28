@@ -31,11 +31,11 @@ export default function DetalleConsultaModal({ visible, contacto, onClose }) {
         {contacto.atendidoPor && (
           <>
             <p><strong>Atendido por:</strong> {contacto.atendidoPor}</p>
-            {contacto.fechaAtencion && (
+            {contacto.FecharResolucion && (
               <p className="text-sm mt-1 text-gray-500">
                 <strong>Fecha de atención:</strong>{" "}
                 {(() => {
-                  const fecha = new Date(contacto.fechaAtendido);
+                  const fecha = new Date(contacto.FecharResolucion);
                   const dia = String(fecha.getDate()).padStart(2, "0");
                   const mes = String(fecha.getMonth() + 1).padStart(2, "0");
                   const año = fecha.getFullYear();

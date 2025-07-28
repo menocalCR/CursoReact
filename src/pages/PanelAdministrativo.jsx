@@ -11,6 +11,7 @@ import AdminCitasTab from "../components/AdminCitasTab";
 import AdminFeedbackTab from "../components/AdminFeedbackTab";
 import { useContacto } from "../context/ContactoContext"; 
 import AdminContactosTab from "../components/AdminContactosTab"; 
+import AdminVehiculosTab from "../components/AdminVehiculosTab";
 
 
 export default function PanelAdministrativo() {
@@ -89,8 +90,8 @@ export default function PanelAdministrativo() {
        <TabPanel header="Administración de contactos"> {/* ✅ Nuevo tab */}
             <AdminContactosTab contactos={contactos} />
           </TabPanel>
-        <TabPanel key="feedback-1" header="Administración nueva">
-        <AdminFeedbackTab/>
+        <TabPanel key="feedback-1" header="Administración de vehiculos">
+        <AdminVehiculosTab/>
        </TabPanel>
         <TabPanel key="feedback-2" header="Administración nueva">
         <AdminFeedbackTab/>

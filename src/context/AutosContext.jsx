@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { reservarAuto } from "../loaders/AutoLoader";
+import { reservarAuto, marcarComoEntregado,  modificarEstadoReservado,} from "../loaders/AutoLoader";
 
 const AutosContext = createContext();
 
@@ -10,6 +10,7 @@ export function AutosProvider({ children }) {
             marca: "",
             combustible: "",
             ano: "",
+            disponibilidad: "",
         });
 
 
@@ -24,8 +25,25 @@ export function AutosProvider({ children }) {
   );
 });
 
+const autosFiltradosPorCriterios = autos.filter((auto) => {
   return (
-    <AutosContext.Provider value={{ autos, setAutos, filtros, setFiltros, autosFiltrados, reservarAuto }}>
+    (filtros.modelo === "" || auto.modelo.toLowerCase().includes(filtros.modelo.toLowerCase())) &&
+    (filtros.marca === "" || auto.marca.toLowerCase().includes(filtros.marca.toLowerCase())) &&
+    (filtros.combustible === "" || auto.combustible === filtros.combustible) &&
+    (filtros.ano === "" || auto.ano.toString() === filtros.ano) &&
+    (
+      filtros.disponibilidad === "" ||
+      (filtros.disponibilidad === "disponibles" && auto.reservado === false && auto.entregado !== true) ||
+      (filtros.disponibilidad === "reservados" && auto.reservado === true && auto.entregado !== true) ||
+      (filtros.disponibilidad === "entregados" && auto.entregado === true)
+    )
+  );
+});
+
+
+
+  return (
+    <AutosContext.Provider value={{ autos, setAutos, filtros, setFiltros, autosFiltrados, autosFiltradosPorCriterios, marcarComoEntregado, modificarEstadoReservado, reservarAuto }}>
       {children}
     </AutosContext.Provider>
   );
