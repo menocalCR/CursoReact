@@ -55,6 +55,43 @@ export default function AdminVehiculosTab() {
     }
   };
 
+  function Paginador({ pagina, setPagina, totalPaginas }) {
+  const irA = (nueva) => {
+    if (nueva >= 0 && nueva < totalPaginas) {
+      setPagina(nueva);
+    }
+  };
+
+  return (
+    <div className="flex justify-center items-center flex-wrap gap-2 mt-6">
+      <button onClick={() => irA(0)} disabled={pagina === 0} className="px-2 py-1 rounded bg-gray-300 hover:bg-gray-400">
+        ⏮
+      </button>
+      <button onClick={() => irA(pagina - 1)} disabled={pagina === 0} className="px-2 py-1 rounded bg-gray-300 hover:bg-gray-400">
+        ◀
+      </button>
+      {Array.from({ length: totalPaginas }).map((_, i) => (
+        <button
+          key={i}
+          onClick={() => irA(i)}
+          className={`px-3 py-1 rounded text-sm ${
+            i === pagina ? "bg-blue-600 text-white" : "bg-gray-200 text-blue-700"
+          }`}
+        >
+          {i + 1}
+        </button>
+      ))}
+      <button onClick={() => irA(pagina + 1)} disabled={pagina === totalPaginas - 1} className="px-2 py-1 rounded bg-gray-300 hover:bg-gray-400">
+        ▶
+      </button>
+      <button onClick={() => irA(totalPaginas - 1)} disabled={pagina === totalPaginas - 1} className="px-2 py-1 rounded bg-gray-300 hover:bg-gray-400">
+        ⏭
+      </button>
+    </div>
+  );
+}
+
+
   return (
     <div className="w-full max-w-6xl mx-auto bg-gray-100 shadow-md p-6 rounded-lg mb-10">
       <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center">
@@ -171,20 +208,12 @@ export default function AdminVehiculosTab() {
 
       {/* 🔄 Paginación */}
       {totalPaginas > 1 && (
-        <div className="flex justify-center mt-6 gap-2">
-          {Array.from({ length: totalPaginas }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setPagina(i)}
-              className={`px-3 py-1 rounded text-sm ${
-                i === pagina ? "bg-blue-600 text-white" : "bg-gray-200 text-blue-700"
-              }`}
-            >
-              {i + 1}
-            </button>
-          ))}
-        </div>
-      )}
+  <Paginador
+    pagina={pagina}
+    setPagina={setPagina}
+    totalPaginas={totalPaginas}
+  />
+)}
 
       {/* 📋 Modal de detalle */}
       <AutoModal

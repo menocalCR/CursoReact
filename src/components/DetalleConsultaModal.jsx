@@ -32,7 +32,7 @@ export default function DetalleConsultaModal({ visible, contacto, onClose }) {
           <>
             <p><strong>Atendido por:</strong> {contacto.atendidoPor}</p>
             {contacto.FecharResolucion && (
-              <p className="text-sm mt-1 text-gray-500">
+              <p >
                 <strong>Fecha de atención:</strong>{" "}
                 {(() => {
                   const fecha = new Date(contacto.FecharResolucion);

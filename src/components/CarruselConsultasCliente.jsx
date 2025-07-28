@@ -43,8 +43,8 @@ export default function CarruselConsultasCliente({ clienteId }) {
             <p className="text-sm text-gray-600 mb-2">Placa: {visibles[0].placa || "N/A"}</p>
             <p className="text-sm text-gray-600 mb-2">Tipo de cédula: {visibles[0].tipoCedula}</p>
             <p className={`text-xs font-semibold px-2 py-1 rounded inline-block ${
-              visibles[0].estado === "ingresado" ? "bg-yellow-100 text-yellow-700" :
-              visibles[0].estado === "en atencion" ? "bg-blue-100 text-blue-700" :
+              visibles[0].estado === "rechazado" ? "bg-yellow-100 text-yellow-700" :
+              visibles[0].estado === "ingresado" ? "bg-blue-100 text-blue-700" :
               "bg-green-100 text-green-700"
             }`}>
               Estado: {visibles[0].estado}
@@ -72,8 +72,8 @@ export default function CarruselConsultasCliente({ clienteId }) {
               <p className="text-sm text-gray-600 mb-2">Placa: {consulta.placa || "N/A"}</p>
               <p className="text-sm text-gray-600 mb-2">Tipo de cédula: {consulta.tipoCedula}</p>
               <p className={` font-semibold rounded inline-block ${
-                consulta.estado === "ingresado" ? "bg-yellow-100 text-yellow-700" :
-                consulta.estado === "en atencion" ? "bg-blue-100 text-blue-700" :
+                consulta.estado === "rechazado" ? "bg-yellow-100 text-yellow-700" :
+                consulta.estado === "ingresado" ? "bg-blue-100 text-blue-700" :
                 "bg-green-100 text-green-700"
               }`}>
                 Estado: {consulta.estado}

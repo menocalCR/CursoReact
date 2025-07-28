@@ -12,23 +12,24 @@ import {
 } from "recharts";
 
 export default function GraficoVehiculosPanel({ autos }) {
-  // 📊 Conteo por estado
   const estados = [
     { estado: "Disponibles", cantidad: autos.filter((a) => !a.reservado && !a.entregado).length },
     { estado: "Reservados", cantidad: autos.filter((a) => a.reservado && !a.entregado).length },
     { estado: "Entregados", cantidad: autos.filter((a) => a.entregado).length },
   ];
 
-  // 📈 Entregas por fecha
-  const entregasPorFecha = Object.entries(
-    autos
-      .filter((a) => a.entregado && a.fechaEntrega)
-      .reduce((acc, a) => {
-        const fecha = new Date(a.fechaEntrega).toLocaleDateString("es-CR");
-        acc[fecha] = acc[fecha] ? acc[fecha] + 1 : 1;
-        return acc;
-      }, {})
-  ).map(([fecha, cantidad]) => ({ fecha, cantidad }));
+const entregasPorFecha = Object.entries(
+  autos
+    .filter((a) => a.entregado && a.fechaEntrega)
+    .reduce((acc, a) => {
+      const fecha = new Date(a.fechaEntrega).toLocaleDateString("es-CR");
+      acc[fecha] = acc[fecha] ? acc[fecha] + 1 : 1;
+      return acc;
+    }, {})
+)
+  .map(([fecha, cantidad]) => ({ fecha, cantidad }))
+  .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

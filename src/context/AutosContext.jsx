@@ -17,7 +17,8 @@ export function AutosProvider({ children }) {
 
  const autosFiltrados = autos.filter((auto) => {
   return (
-    auto.reservado !== true &&
+    auto.reservado !== true && 
+    auto.entregado !== true &&
     (filtros.modelo === "" || auto.modelo.toLowerCase().includes(filtros.modelo.toLowerCase())) &&
     (filtros.marca === "" || auto.marca.toLowerCase().includes(filtros.marca.toLowerCase())) &&
     (filtros.combustible === "" || auto.combustible === filtros.combustible) &&
