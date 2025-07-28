@@ -4,7 +4,9 @@ import {
   crearContacto,
   obtenerContactosPorCliente,
   actualizarEstadoContacto,
-  obtenerContactoPorId
+  obtenerContactoPorId,
+  obtenerContactosIngresados,
+  actualizarContactoExtendido
 } from "../loaders/ContactoLoader";
 
 const ContactoContext = createContext();
@@ -36,7 +38,31 @@ export function ContactoProvider({ children }) {
     return actualizado;
   };
 
-  
+  const cargarContactosIngresados = async () => {
+  const data = await obtenerContactosIngresados();
+  setContactos(data); // Asume que mostrás todos en el estado global
+  return data;
+};
+
+const actualizarContacto = async (id, datos) => {
+  const actualizado = await actualizarContactoExtendido(
+    id,
+    datos.estado,
+    datos.atendidoPor,
+    datos.contactadoPor,
+    datos.resolucion,
+    datos.FecharResolucion
+  );
+
+  if (actualizado) {
+    await cargarContactosIngresados();
+  }
+
+  return actualizado;
+};
+
+
+
 
   return (
     <ContactoContext.Provider value={{
@@ -46,6 +72,8 @@ export function ContactoProvider({ children }) {
       cambiarEstadoContacto,
       detalleContacto,
       cargarDetalleContacto,
+      cargarContactosIngresados,
+      actualizarContacto
     }}>
       {children}
     </ContactoContext.Provider>

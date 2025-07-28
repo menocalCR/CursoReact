@@ -39,12 +39,13 @@
       "placa": "ABC123",
       "identificacion": "101010101",
       "tipoCedula": "fisico",
-      "estado": "ingresado",
+      "estado": "atendido",
       "clienteId": "1",
-      "atendidoPor": "Meno"
+      "atendidoPor": "Meno",
+      "contactadoPor": "email"
     },
     {
-      "id": "1",
+      "id": "2",
       "nombre": "Ana",
       "apellidos": "Rodríguez",
       "email": "ana@example.com",
@@ -52,12 +53,13 @@
       "placa": "ABC123",
       "identificacion": "101010101",
       "tipoCedula": "fisico",
-      "estado": "ingresado",
+      "estado": "rechazado",
       "clienteId": "2",
-      "atendidoPor": "Meno"
+      "atendidoPor": "Andres",
+      "contactadoPor": "email"
     },
     {
-      "id": "1",
+      "id": "13",
       "nombre": "Ana",
       "apellidos": "Rodríguez",
       "email": "ana@example.com",
@@ -65,12 +67,13 @@
       "placa": "ABC123",
       "identificacion": "101010101",
       "tipoCedula": "fisico",
-      "estado": "ingresado",
+      "estado": "aprobado",
       "clienteId": "3",
-      "atendidoPor": "Meno"
+      "atendidoPor": "jjj",
+      "contactadoPor": "email"
     },
     {
-      "id": "1",
+      "id": "4",
       "nombre": "Ana",
       "apellidos": "Rodríguez",
       "email": "ana@example.com",
@@ -78,9 +81,10 @@
       "placa": "ABC123",
       "identificacion": "101010101",
       "tipoCedula": "fisico",
-      "estado": "ingresado",
+      "estado": "aprobado",
       "clienteId": "4",
-      "atendidoPor": "Meno"
+      "atendidoPor": "Meno",
+      "contactadoPor": "email"
     },
     {
       "id": "9f0a",
@@ -93,10 +97,11 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la consulta que quiero hacer",
       "aceptaPolitica": true,
-      "estado": "ingresado",
+      "estado": "rechazado",
       "clienteId": "2",
-      "atendidoPor": "Meno",
-      "tipoCedula": "Físico"
+      "atendidoPor": "aaa",
+      "tipoCedula": "Físico",
+      "contactadoPor": "email"
     },
     {
       "id": "e2f4",
@@ -109,9 +114,10 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "rechazado",
+      "atendidoPor": "aa",
+      "tipoCedula": "Físico",
+      "contactadoPor": "email"
     },
     {
       "id": "de5c",
@@ -124,9 +130,10 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "aprobado",
+      "atendidoPor": "Menocal",
+      "tipoCedula": "Físico",
+      "contactadoPor": "email"
     },
     {
       "id": "6f40",
@@ -139,9 +146,10 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "aprobado",
+      "atendidoPor": "nota",
+      "tipoCedula": "Físico",
+      "contactadoPor": "email"
     },
     {
       "id": "244d",
@@ -154,9 +162,12 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "aprobado",
+      "atendidoPor": "New",
+      "tipoCedula": "Físico",
+      "contactadoPor": "email",
+      "resolucion": "New",
+      "FecharResolucion": "2025-07-28T02:24:04.325Z"
     },
     {
       "id": "5863",
@@ -169,9 +180,12 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "aprobado",
+      "atendidoPor": "Menocal",
+      "tipoCedula": "Físico",
+      "contactadoPor": "email",
+      "resolucion": "Atendido",
+      "FecharResolucion": "2025-07-28T02:28:13.447Z"
     },
     {
       "id": "9aa3",
@@ -184,9 +198,12 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "rechazado",
+      "atendidoPor": "Meno",
+      "tipoCedula": "Físico",
+      "contactadoPor": "email",
+      "resolucion": "rechazado",
+      "FecharResolucion": "2025-07-28T02:28:39.455Z"
     },
     {
       "id": "390d",
@@ -214,9 +231,12 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "rechazado",
+      "atendidoPor": "Andres",
+      "tipoCedula": "Físico",
+      "contactadoPor": "teléfono",
+      "resolucion": "se nego el servicio por error en la informacion del Vehiculo",
+      "FecharResolucion": "2025-07-28T02:50:24.189Z"
     },
     {
       "id": "fe43",
@@ -229,9 +249,12 @@
       "tipoIdentificacion": "Físico",
       "consulta": "esta es la nueva consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
-      "atendidoPor": "",
-      "tipoCedula": "Físico"
+      "estado": "rechazado",
+      "atendidoPor": "Juan",
+      "tipoCedula": "Físico",
+      "contactadoPor": "teléfono",
+      "resolucion": "Se rechazo",
+      "FecharResolucion": "2025-07-28T02:50:38.141Z"
     },
     {
       "id": "ab22",
@@ -535,12 +558,14 @@
       "tipoIdentificacion": "Físico",
       "consulta": "consulta",
       "aceptaPolitica": true,
-      "estado": "ingresado",
+      "estado": "aprobado",
       "clienteId": "",
-      "atendidoPor": "",
-      "resolucion": "",
+      "atendidoPor": "Andres",
+      "resolucion": "Se valido la informacion y todo ok",
       "tipoCedula": "Físico",
-      "fechaIngreso": "2025-07-25T16:52:31.799Z"
+      "fechaIngreso": "2025-07-25T16:52:31.799Z",
+      "contactadoPor": "email",
+      "FecharResolucion": "2025-07-28T02:44:38.283Z"
     },
     {
       "id": "6ac9",
@@ -2280,6 +2305,16 @@
       "info": "Toyota RAV4 2020",
       "estrellas": 5,
       "fecha": "2025-07-26T23:29:30.433Z"
+    },
+    {
+      "id": "4095",
+      "idcliente": "2",
+      "idauto": "4",
+      "nombre": "Usuario de compra1",
+      "mensaje": "no",
+      "info": "Mazda Mazda 3 2018",
+      "estrellas": 5,
+      "fecha": "2025-07-27T04:29:56.259Z"
     }
   ],
   "autos": [
@@ -2887,7 +2922,7 @@
       "fechaSolicitada": "2025-07-27",
       "horaSolicitada": "10:00",
       "tipoCita": "revisión de vehículo en taller",
-      "estado": "solicitada",
+      "estado": "aprobada",
       "idUsuarioAtiende": "",
       "detalleCliente": "",
       "detallesCita": "",
@@ -2959,7 +2994,7 @@
       "fechaSolicitada": "2025-07-27",
       "horaSolicitada": "13:00",
       "tipoCita": "revisión de vehículo en taller",
-      "estado": "solicitada",
+      "estado": "rechazada",
       "idUsuarioAtiende": "",
       "detalleCliente": "",
       "detallesCita": "",
